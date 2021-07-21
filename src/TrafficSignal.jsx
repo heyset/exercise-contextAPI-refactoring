@@ -5,6 +5,8 @@ import redSignal from './images/redSignal.jpeg';
 import yellowSignal from './images/yellowSignal.jpeg';
 import greenSignal from './images/greenSignal.jpeg';
 
+import { TrafficContext } from './contexts/TrafficContext';
+
 const renderSignal = (signalColor) => {
   if (signalColor === 'red') return redSignal;
   if (signalColor === 'yellow') return yellowSignal;
@@ -14,8 +16,7 @@ const renderSignal = (signalColor) => {
 
 export default class TrafficSignal extends React.Component {
   render() {
-    const changeSignal = () => undefined;
-    const signalColor = 'yellow';
+    const { signalColor, changeSignal } = this.context;
 
     return (
       <div>
@@ -35,3 +36,5 @@ export default class TrafficSignal extends React.Component {
     );
   }
 }
+
+TrafficSignal.contextType = TrafficContext;
