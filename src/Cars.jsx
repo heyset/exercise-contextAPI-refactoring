@@ -4,10 +4,13 @@ import carBlue from './images/carBlue.jpeg';
 import carRed from './images/carRed.jpeg';
 import carYellow from './images/carYellow.jpeg';
 
+import { CarContext } from './contexts/CarContext';
+
 export default class Cars extends React.Component {
   render() {
-    const moveCar = () => undefined;
-    let redCar, blueCar, yellowCar = false;
+    const { cars, moveCar } = this.context;
+
+    const { red: redCar, blue: blueCar, yellow: yellowCar } = cars;
 
     return (
       <div>
@@ -54,3 +57,5 @@ export default class Cars extends React.Component {
     );
   }
 }
+
+Cars.contextType = CarContext;
