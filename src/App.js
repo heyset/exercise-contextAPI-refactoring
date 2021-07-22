@@ -2,8 +2,8 @@ import React from 'react';
 import TrafficSignal from './TrafficSignal';
 import './App.css';
 import Cars from './Cars';
-import { CarProvider } from './contexts/CarContext';
-import { TrafficProvider } from './contexts/TrafficContext';
+import { CarProvider } from './hooks/useCars';
+import { TrafficProvider } from './hooks/useTraffic';
 
 function App() {
   return (

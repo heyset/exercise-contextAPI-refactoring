@@ -5,7 +5,7 @@ import redSignal from './images/redSignal.jpeg';
 import yellowSignal from './images/yellowSignal.jpeg';
 import greenSignal from './images/greenSignal.jpeg';
 
-import { TrafficContext } from './contexts/TrafficContext';
+import useTraffic from './hooks/useTraffic';
 
 const renderSignal = (signalColor) => {
   if (signalColor === 'red') return redSignal;
@@ -14,27 +14,23 @@ const renderSignal = (signalColor) => {
   return null;
 };
 
-export default class TrafficSignal extends React.Component {
-  render() {
-    const { signalColor, changeSignal } = this.context;
+export default function TrafficSignal () {
+  const { signalColor, changeSignal } = useTraffic();
 
-    return (
-      <div>
-        <div className="button-container">
-          <button onClick={() => changeSignal('red')} type="button">
-            Red
-          </button>
-          <button onClick={() => changeSignal('yellow')} type="button">
-            Yellow
-          </button>
-          <button onClick={() => changeSignal('green')} type="button">
-            Green
-          </button>
-        </div>
-        <img className="signal" src={renderSignal(signalColor)} alt="" />
+  return (
+    <div>
+      <div className="button-container">
+        <button onClick={() => changeSignal('red')} type="button">
+          Red
+        </button>
+        <button onClick={() => changeSignal('yellow')} type="button">
+          Yellow
+        </button>
+        <button onClick={() => changeSignal('green')} type="button">
+          Green
+        </button>
       </div>
-    );
-  }
+      <img className="signal" src={renderSignal(signalColor)} alt="" />
+    </div>
+  );
 }
-
-TrafficSignal.contextType = TrafficContext;
