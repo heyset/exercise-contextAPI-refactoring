@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { CarProvider } from './contexts/CarContext.jsx';
+import { CarProvider } from './hooks/useCars.jsx';
 
 ReactDOM.render(
   <React.StrictMode>
